@@ -8,13 +8,11 @@ use Validator\RequestValidator;
 include 'bootstrap.php';
 
 try {
-    
     $requestValidator = new RequestValidator(RotasUtil::getRotas());
     $retorno = $requestValidator->processarRequest();
 
     $JsonUtil = new JsonUtil();
     $JsonUtil->processarArrayParaRetornar($retorno);
-
 } catch(Exception $e) {
     echo json_encode([
         ConstantesGenericasUtil::TIPO => ConstantesGenericasUtil::TIPO_ERRO,
